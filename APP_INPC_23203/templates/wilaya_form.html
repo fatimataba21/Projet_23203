@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Formulaire de Wilaya</h2>
+
+    <!-- Affichage des erreurs si le formulaire n'est pas valide -->
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>Erreurs :</strong>
+        {{ form.errors }}
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Enregistrer
+                </button>
+                <a href="{% url 'wilaya_list' %}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Retour
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

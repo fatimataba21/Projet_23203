@@ -1,0 +1,178 @@
+/* General Body Styles */
+body {
+    padding-top: 70px;
+    /* Adjust this value to match the height of your header */
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #283645;
+    padding-top: 60px;
+    /* Adjust for header height */
+    z-index: 101;
+    transition: left 0.3s ease;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar .logo {
+    position: absolute;
+    /* Position the logo at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #1d2630;
+    /* Slightly darker color for logo background */
+}
+
+.sidebar .logo a {
+    color: #A7D2CB;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.sidebar .logo span {
+    color: #E7BB41;
+}
+
+.sidebar .nav {
+    padding-top: 20px;
+}
+
+/* Use Bootstrap's flex-column for vertical alignment */
+.sidebar .nav-item {
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-item:hover {
+    background-color: #3A4D5E;
+}
+
+/* Styling for Bootstrap's nav-link class */
+.sidebar .nav-link {
+    color: #A7D2CB;
+    padding: 0.5rem 1rem;
+    /* Use Bootstrap's default padding */
+    display: flex;
+    /* Align icon and text */
+    align-items: center;
+}
+
+.sidebar .nav-link i {
+    width: 25px;
+    /* Fixed width for icons */
+    text-align: center;
+    margin-right: 10px;
+    /* Space between icon and text */
+}
+
+.sidebar .nav-link.active {
+    font-weight: 600;
+}
+
+/* Styling for the main-button inside the sidebar */
+.sidebar .main-button {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.sidebar .main-button a {
+    background-color: #E7BB41;
+    color: #283645;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .main-button a:hover {
+    background-color: #D6A731;
+}
+
+/* Content Styles */
+.content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.content.open {
+    margin-left: 250px;
+}
+
+/* Header Styles */
+.header-area {
+    background-color: transparent;
+    position: fixed;
+    /* Fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    /* Ensure it's above other elements */
+    transition: background-color 0.3s ease;
+    /* Add a transition for a smooth effect */
+}
+
+.header-area.sticky {
+    background-color: #f8f9fa;
+    /* Change the background color when sticky */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add a subtle box shadow */
+}
+
+.header-area .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-trigger {
+    display: block;
+    cursor: pointer;
+    color: #283645;
+    font-size: 18px;
+}
+
+.main-nav .nav {
+    display: none;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .sidebar {
+        left: 0;
+    }
+
+    .content {
+        margin-left: 250px;
+    }
+
+    .menu-trigger {
+        display: none;
+    }
+
+    .main-nav .nav {
+        display: flex !important;
+    }
+
+    /* Remove padding-top when sidebar is always visible */
+    body {
+        padding-top: 0;
+    }
+}

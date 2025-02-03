@@ -1,0 +1,52 @@
+/* responsive.css */
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #343a40;
+        transition: 0.3s;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar .nav-link {
+        color: #fff;
+        padding: 10px 15px;
+    }
+
+    .content {
+        margin-left: 0;
+        transition: margin-left 0.3s;
+    }
+
+    .content.open {
+        margin-left: 250px;
+    }
+
+    .menu-trigger {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 25px;
+        cursor: pointer;
+        color: #343a40;
+    }
+
+    .main-button a {
+        display: block;
+        padding: 15px;
+        background-color: #ffe100;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+  <h2>Tableau de Bord - INPC & Graphiques</h2>
+
+  <div class="row">
+    <!-- Sélection du panier, mois et année -->
+    <div class="col-md-4">
+      <form method="get" action="{% url 'home' %}">
+        <div class="form-group">
+          <label for="cartSelect">Sélectionnez un panier :</label>
+          <select id="cartSelect" name="cart_code" class="form-control" onchange="this.form.submit()">
+            {% for cart in carts %}
+              <option value="{{ cart.code }}" {% if cart.code == selected_cart.code %}selected{% endif %}>{{ cart.name }} ({{ cart.code }})</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group mt-3">
+          <label for="monthSelect">Sélectionnez un mois :</label>
+          <select id="monthSelect" name="month" class="form-control" onchange="this.form.submit()">
+            {% for month in months %}
+              <option value="{{ month.num }}" {% if month.num|stringformat:"02" == selected_month %}selected{% endif %}>{{ month.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group mt-3">
+          <label for="yearSelect">Sélectionnez une année :</label>
+          <select id="yearSelect" name="year" class="form-control" onchange="this.form.submit()">
+            {% for i in years %}
+              <option value="{{ i }}" {% if i|stringformat:"04" == selected_year|stringformat:"04" %}selected{% endif %}>{{ i }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </form>
+    </div>
+
+    <!-- Affichage de l'INPC -->
+    <div class="col-md-8">
+      <h3>INPC pour le mois sélectionné</h3>
+      <table class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Mois</th>
+            <th>Valeur INPC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ selected_month }}/{{ selected_year }}</td>
+            <td>{{ inpc_value|floatformat:2 }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Graphiques -->
+  <div class="row mt-5">
+    <div class="col-md-6 mb-4">
+      <h4>Ventes Mensuelles (MRO)</h4>
+      <canvas id="lineChart"></canvas>
+    </div>
+    <div class="col-md-6 mb-4">
+      <h4>Répartition par Type (MRO)</h4>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 mb-4">
+      <h4>Chiffre par Trimestre (MRO)</h4>
+      <canvas id="barChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Line Chart
+    var lineCtx = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: JSON.parse('{{ line_labels|escapejs }}'),
+        datasets: [{
+          label: 'Ventes Mensuelles (MRO)',
+          data: JSON.parse('{{ line_data|escapejs }}'),
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Pie Chart
+    var pieCtx = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(pieCtx, {
+      type: 'pie',
+      data: {
+        labels: JSON.parse('{{ pie_labels|escapejs }}'),
+        datasets: [{
+          label: 'Répartition par Type (MRO)',
+          data: JSON.parse('{{ pie_data|escapejs }}'),
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Bar Chart
+    var barCtx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(barCtx, {
+      type: 'bar',
+      data: {
+        labels: JSON.parse('{{ bar_labels|escapejs }}'),
+        datasets: [{
+          label: 'Chiffre par Trimestre (MRO)',
+          data: JSON.parse('{{ bar_data|escapejs }}'),
+          backgroundColor: 'rgba(153, 102, 255, 0.2)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

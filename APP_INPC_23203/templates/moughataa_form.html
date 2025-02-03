@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Formulaire de Moughataa</h2>
+
+    <!-- Affiche les erreurs du formulaire si nécessaire -->
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Erreurs :</strong>
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Enregistrer
+                </button>
+                <a href="{% url 'moughataa_list' %}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Annuler
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

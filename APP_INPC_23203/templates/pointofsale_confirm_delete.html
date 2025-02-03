@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Supprimer un Point de Vente</h2>
+
+    <div class="alert alert-danger">
+        <p>Êtes-vous sûr de vouloir supprimer le point de vente :
+            <strong>{{ point_of_sale.code }} - {{ point_of_sale.type }}</strong> ?
+        </p>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash"></i> Supprimer
+        </button>
+        <a href="{% url 'point_of_sale_list' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Annuler
+        </a>
+    </form>
+</div>
+{% endblock %}

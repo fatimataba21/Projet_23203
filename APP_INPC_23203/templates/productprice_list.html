@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Liste des Prix</h2>
+
+    <!-- Barre Import/Export -->
+    <div class="d-flex justify-content-between mb-3">
+        <!-- Bouton Ajouter -->
+        <a href="{% url 'product_price_add' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Ajouter
+        </a>
+
+        <!-- Bouton Export -->
+        <a href="{% url 'product_price_export' %}" class="btn btn-primary">
+            <i class="fas fa-file-export"></i> Exporter
+        </a>
+
+        <!-- Formulaire Import -->
+        <form method="POST" action="{% url 'product_price_import' %}" enctype="multipart/form-data" class="d-flex">
+            {% csrf_token %}
+            <input type="file" name="file" class="form-control me-2" accept=".xlsx,.xls,.csv" required>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-file-import"></i> Importer
+            </button>
+        </form>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Produit</th>
+                <th>Point de vente</th>
+                <th>Valeur</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for price in productprice_list %}
+            <tr>
+                <!-- Affichage du nom du produit -->
+                <td>{{ price.product.name }}</td>
+                <!-- Affichage du point de vente (ex : code ou type) -->
+                <td>{{ price.point_of_sale.code }}</td>
+                <!-- Valeur du prix -->
+                <td>{{ price.value }}</td>
+                <!-- Dates -->
+                <td>{{ price.date_from }}</td>
+                <td>{{ price.date_to|default:"-" }}</td>
+                <td>
+                    <!-- Lien de modification -->
+                    <a href="{% url 'product_price_edit' price.id %}" class="btn btn-warning btn-sm">
+                        <i class="fas fa-edit"></i> Modifier
+                    </a>
+                    <!-- Lien de suppression -->
+                    <form action="{% url 'product_price_delete' price.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Supprimer
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">Aucun prix disponible</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

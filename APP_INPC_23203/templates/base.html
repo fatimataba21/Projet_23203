@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="INPC APP - Application pour la gestion des indices des prix.">
+    <meta name="author" content="INPC Team">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>{% block title %}INPC APP{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-space-dynamic.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom2.css' %}">
+
+    <!-- Font Awesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sidebar (menu latéral) -->
+    <div class="d-flex">
+        <div class="sidebar bg-dark text-white p-3">
+            <div class="logo mb-3">
+                <a href="{% url 'home' %}" class="text-white text-decoration-none">
+                    <h4>INPC<span>APP</span></h4>
+                </a>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'home' %}">
+                        <i class="fas fa-home me-2"></i> Accueil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'product_type_list' %}">
+                        <i class="fas fa-tags me-2"></i> Types de Produits
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'product_list' %}">
+                        <i class="fas fa-box me-2"></i> Produits
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'cart_list' %}">
+                        <i class="fas fa-shopping-cart me-2"></i> Paniers
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'point_of_sale_list' %}">
+                        <i class="fas fa-map-marker-alt me-2"></i> Points de Vente
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'product_price_list' %}">
+                        <i class="fas fa-dollar-sign me-2"></i> Prix
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'wilaya_list' %}">
+                        <i class="fas fa-city me-2"></i> Wilaya
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'moughataa_list' %}">
+                        <i class="fas fa-map me-2"></i> Moughataa
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'commune_list' %}">
+                        <i class="fas fa-building me-2"></i> Communes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'cartproduct_list' %}">
+                        <i class="fas fa-boxes me-2"></i> Produits dans le Panier
+                    </a>
+                </li>
+                <li class="nav-item mt-3">
+                    <a href="#contact" class="btn btn-outline-light w-100">
+                        <i class="fas fa-phone-alt me-2"></i> Contactez-nous
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="content flex-grow-1">
+            <header class="d-flex align-items-center p-3 bg-light shadow-sm">
+                <button class="btn btn-dark d-md-none menu-trigger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="h5 mb-0 ms-3">Bienvenue sur INPC APP</h1>
+            </header>
+
+            <div class="main-content p-4">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0" style="color: #f8f9fa;">
+                &copy; 2025 INPC APP. Tous droits réservés.
+                <br> Design : <a rel="nofollow" href="#" class="text-white">INPC APP</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/animation.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.js' %}"></script>
+    <script src="{% static 'assets/js/templatemo-custom.js' %}"></script>
+
+    <!-- Script pour le menu mobile -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuTrigger = document.querySelector('.menu-trigger');
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+
+            if (menuTrigger) {
+                menuTrigger.addEventListener("click", function () {
+                    sidebar.classList.toggle('open');
+                    content.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

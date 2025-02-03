@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Liste des Produits dans les Paniers</h2>
+
+    <!-- Barre Import/Export -->
+    <div class="d-flex justify-content-between mb-3">
+        <!-- Bouton Ajouter -->
+        <a href="{% url 'cartproducts_add' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Ajouter
+        </a>
+
+        <!-- Bouton Export -->
+        <a href="{% url 'cartproducts_export' %}" class="btn btn-primary">
+            <i class="fas fa-file-export"></i> Exporter
+        </a>
+
+        <!-- Formulaire Import -->
+        <form method="POST" action="{% url 'cartproducts_import' %}" enctype="multipart/form-data" class="d-flex">
+            {% csrf_token %}
+            <input type="file" name="file" class="form-control me-2" accept=".xlsx,.xls,.csv" required>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-file-import"></i> Importer
+            </button>
+        </form>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Produit</th>
+                <th>Panier</th>
+                <th>Poids</th>
+                <th>Date Début</th>
+                <th>Date Fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cartproduct in cartproducts_list %}
+            <tr>
+                <td>{{ cartproduct.product.name }}</td>
+                <td>{{ cartproduct.cart_product.name }}</td>
+                <td>{{ cartproduct.weight }} kg</td>
+                <td>{{ cartproduct.date_from|date:"d/m/Y" }}</td>
+                <td>{{ cartproduct.date_to|default:"-"|date:"d/m/Y" }}</td>
+                <td>
+                    <!-- Boutons Edit/Supprimer (si vous souhaitez gérer le CRUD complet) -->
+                    <a href="{% url 'cartproducts_edit' cartproduct.pk %}" class="btn btn-warning btn-sm">
+                        <i class="fas fa-edit"></i> Modifier
+                    </a>
+                    <a href="{% url 'cartproducts_delete' cartproduct.pk %}" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i> Supprimer
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">Aucun produit trouvé dans les paniers</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

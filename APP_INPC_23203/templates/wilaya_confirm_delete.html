@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container my-4">
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Supprimer la Wilaya</h4>
+    <p>Êtes-vous sûr de vouloir supprimer la Wilaya : <strong>{{ wilaya.name }}</strong> ?</p>
+  </div>
+  
+  <form method="POST" class="d-inline">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+  </form>
+  
+  <a href="{% url 'wilaya_list' %}" class="btn btn-secondary">Annuler</a>
+</div>
+{% endblock %}

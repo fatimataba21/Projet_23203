@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Supprimer le Produit</h2>
+
+    <div class="alert alert-danger">
+        <p>Êtes-vous sûr de vouloir supprimer le produit :
+            <strong>{{ product.name }}</strong> ?
+        </p>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash"></i> Supprimer
+        </button>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Annuler
+        </a>
+    </form>
+</div>
+{% endblock %}

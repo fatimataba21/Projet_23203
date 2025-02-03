@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Formulaire de Prix</h2>
+
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        <strong>Erreurs :</strong>
+        {{ form.errors }}
+      </div>
+    {% endif %}
+
+    <div class="card">
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">
+            Enregistrer
+          </button>
+          <a href="{% url 'product_price_list' %}" class="btn btn-secondary">
+            Annuler
+          </a>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}

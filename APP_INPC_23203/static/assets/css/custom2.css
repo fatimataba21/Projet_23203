@@ -1,0 +1,1257 @@
+/* ================== General Body Styles ================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    /* Light background */
+    color: #343a40;
+    /* Dark gray text */
+}
+
+/* ================== Header Area ================== */
+.header-area {
+    background-color: #fff;
+    /* White header */
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    /* Add transition for sticky effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+.header-area.sticky {
+    background-color: #fff;
+    /* White when sticky */
+    padding: 15px 0;
+    /* Reduce padding when sticky */
+}
+
+.header-area .logo {
+    font-weight: 700;
+    font-size: 28px;
+    /* Larger logo */
+}
+
+.header-area .logo a {
+    color: #0d6efd;
+    /* Primary blue */
+    text-decoration: none;
+}
+
+.header-area .logo span {
+    color: #198754;
+    /* Success green */
+}
+
+.header-area .nav li {
+    margin: 0 15px;
+    /* More space between links */
+}
+
+.header-area .nav li a {
+    color: #343a40;
+    /* Dark gray */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    /* Add padding to links */
+    border-radius: 5px;
+    /* Rounded links */
+}
+
+.header-area .nav li a:hover,
+.header-area .nav li a.active {
+    color: #0d6efd;
+    /* Primary blue on hover/active */
+    background-color: #e9ecef;
+    /* Light gray background on hover/active */
+}
+
+.header-area .main-red-button a {
+    background-color: #dc3545;
+    /* Danger red */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    /* More rounded button */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    border: none;
+    /* Remove default border */
+}
+
+.header-area .main-red-button a:hover {
+    background-color: #c82333;
+    /* Darker red on hover */
+}
+
+.menu-trigger {
+    color: #0d6efd;
+    /* Primary blue */
+    font-size: 20px;
+    /* Larger trigger */
+    cursor: pointer;
+    display: none;
+    /* Hide on larger screens */
+}
+
+/* ================== Main Banner ================== */
+.main-banner {
+    background: url("{% static 'assets/images/banner-bg.jpg' %}") no-repeat center/cover;
+    /* Replace with your background image */
+    padding: 150px 0;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    /* White text */
+}
+
+.main-banner:before {
+    /* Overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust opacity as needed */
+}
+
+.main-banner .container {
+    position: relative;
+    /* Ensure content is above overlay */
+    z-index: 2;
+}
+
+.main-banner .left-content h6 {
+    color: #198754;
+    /* Success green */
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    /* Uppercase subtitle */
+}
+
+.main-banner .left-content h2 {
+    font-size: 52px;
+    /* Larger heading */
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    /* Improve line height */
+}
+
+.main-banner .left-content h2 em {
+    font-style: normal;
+    color: #0d6efd;
+    /* Primary blue */
+}
+
+.main-banner .left-content h2 span {
+    font-style: normal;
+    color: #198754;
+    /* Success green */
+}
+
+.main-banner .left-content p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    /* Larger paragraph text */
+    line-height: 1.6;
+    /* Improve line height */
+}
+
+.main-banner .left-content form {
+    background-color: rgba(255,
+        255,
+        255,
+        0.9);
+        /* Slightly transparent white */
+        border-radius: 10px;
+        /* More rounded form */
+        padding: 30px;
+        box-shadow: 04px 8px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow */
+        }
+        
+        .main-banner .left-content input.email {
+            width: 100%;
+            padding: 15px;
+            /* Larger input */
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            /* Light gray border */
+            border-radius: 8px;
+            /* More rounded input */
+            font-size: 16px;
+            /* Larger font size */
+        }
+        
+        .main-banner .left-content .main-button {
+            background-color: #198754;
+            /* Success green */
+            color: #fff;
+            padding: 15px 30px;
+            /* Larger button */
+            border: none;
+            border-radius: 8px;
+            /* More rounded button */
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            /* Larger font size */
+        }
+        
+        .main-banner .left-content .main-button:hover {
+            background-color: #157347;
+            /* Darker green on hover */
+        }
+        
+        .main-banner .right-image img {
+            max-width: 100%;
+        }
+        
+        /* ================== About Us Section ================== */
+        .about-us {
+            padding: 100px 0;
+        }
+        
+        .about-us .left-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            /* Rounded image corners */
+        }
+        
+        .about-us .services .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            /* More space between items */
+        }
+        
+        .about-us .services .item .icon {
+            width: 90px;
+            /* Larger icon container */
+            height: 90px;
+            /* Larger icon container */
+            background-color: #e9ecef;
+            /* Light gray */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 25px;
+            /* More space between icon and text */
+            flex-shrink: 0;
+            /* Prevent icon from shrinking */
+        }
+        
+        .about-us .services .item .icon img {
+            max-width: 45px;
+            /* Larger icon */
+        }
+        
+        .about-us .services .item .right-text h4 {
+            color: #0d6efd;
+            /* Primary blue */
+            font-weight: 600;
+            margin-bottom: 15px;
+            /* More space */
+            font-size: 20px;
+            /* Larger heading */
+        }
+        
+        .about-us .services .item .right-text p {
+            color: #343a40;
+            /* Gray */
+            line-height: 1.6;
+            /* Improved line height */
+        }
+        
+        /* ================== Our Services Section ================== */
+        .our-services {
+            background-color: #f8f9fa;
+            /* Light background */
+            padding: 100px 0;
+        }
+        
+        .our-services .left-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            /* Rounded image corners */
+        }
+        
+        .our-services .section-heading {
+            margin-bottom: 50px;
+            /* More space */
+        }
+        
+        .our-services .section-heading h2 {
+            font-size: 40px;
+            /* Larger heading */
+            font-weight: 700;
+            color: #212529;
+            /* Dark gray */
+            line-height: 1.3;
+            /* Improved line height */
+        }
+        
+        .our-services .section-heading h2 em {
+            font-style: normal;
+            color: #0d6efd;
+            /* Primary blue */
+        }
+        
+        .our-services .section-heading h2 span {
+            font-style: normal;
+            color: #198754;
+            /* Success green */
+        }
+        
+        .our-services .section-heading p {
+            color: #343a40;
+            /* Gray */
+            margin-top: 20px;
+            /* More space */
+            font-size: 17px;
+            /* Larger paragraph text */
+            line-height: 1.6;
+            /* Improved line height */
+        }
+        
+        .our-services .progress-skill-bar {
+            margin-bottom: 40px;
+            /* More space */
+        }
+        
+        .our-services .progress-skill-bar h4 {
+            color: #0d6efd;
+            /* Primary blue */
+            font-weight: 600;
+            margin-bottom: 15px;
+            /* More space */
+            font-size: 20px;
+            /* Larger heading */
+        }
+        
+        .our-services .progress-skill-bar span {
+            color: #343a40;
+            /* Gray */
+            float: right;
+            font-weight: 600;
+            font-size: 16px;
+            /* Larger percentage */
+        }
+        
+        .our-services .progress-skill-bar .filled-bar {
+            background-color: #198754;
+            /* Success green */
+            height: 12px;
+            /* Thicker bar */
+            border-radius: 6px;
+            /* More rounded bar */
+            /* You'll need to set the width dynamically based on the percentage */
+        }
+        
+        .our-services .progress-skill-bar .full-bar {
+            background-color: #e9ecef;
+            /* Light gray */
+            height: 12px;
+            /* Thicker bar */
+            border-radius: 6px;
+            /* More rounded bar */
+        }
+        
+        /* ================== Our Portfolio Section ================== */
+        .our-portfolio {
+            padding: 100px 0;
+        }
+        
+        .our-portfolio .section-heading {
+            margin-bottom: 50px;
+            /* More space */
+        }
+        
+        .our-portfolio .section-heading h2 {
+            font-size: 40px;
+            /* Larger heading */
+            font-weight: 700;
+            color: #212529;
+            /* Dark gray */
+            text-align: center;
+            line-height: 1.3;
+            /* Improved line height */
+        }
+        
+        .our-portfolio .section-heading h2 em {
+            font-style: normal;
+            color: #0d6efd;
+            /* Primary blue */
+        }
+        
+        .our-portfolio .section-heading h2 span {
+            font-style: normal;
+            color: #198754;
+            /* Success green */
+        }
+        
+        .our-portfolio .item {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            /* Space between items */
+            border-radius: 10px;
+            /* Rounded corners */
+        }
+        
+        .our-portfolio .item .hidden-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Dark overlay */
+            padding: 30px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+            /* Match item border radius */
+        }
+        
+        .our-portfolio .item:hover .hidden-content {
+            opacity: 1;
+        }
+        
+        .our-portfolio .item .hidden-content h4 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 15px;
+            /* More space */
+            font-size: 20px;
+            /* Larger heading */
+            transform: translateY(-20px);
+            /* Initial position for animation */
+            transition: transform 0.4s ease;
+        }
+        
+        .our-portfolio .item:hover .hidden-content h4 {
+            transform: translateY(0);
+            /* Animate on hover */
+        }
+        
+        .our-portfolio .item .hidden-content p {
+            color: #fff;
+            font-size: 16px;
+            /* Larger text */
+            line-height: 1.5;
+            /* Improved line height */
+            transform: translateY(20px);
+            /* Initial position for animation */
+            transition: transform 0.4s ease;
+        }
+        
+        .our-portfolio .item:hover .hidden-content p {
+            transform: translateY(0);
+            /* Animate on hover */
+        }
+        
+        .our-portfolio .item .showed-content {
+            transition: transform 0.4s ease;
+        }
+        
+        .our-portfolio .item:hover .showed-content {
+            transform: scale(1.05);
+            /* Slightly enlarge on hover */
+        }
+        
+        .our-portfolio .item .showed-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            /* Match item border radius */
+        }
+        
+        /* ================== Contact Us Section ================== */
+        .contact-us {
+            background-color: #f8f9fa;
+            /* Light background */
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .contact-us .section-heading {
+            margin-bottom: 50px;
+            /* More space */
+        }
+        
+        .contact-us .section-heading h2 {
+            font-size: 40px;
+            /* Larger heading */
+            font-weight: 700;
+            color: #212529;
+            /* Dark gray */
+            line-height: 1.3;
+            /* Improved line height */
+        }
+        
+        .contact-us .section-heading p {
+            color: #343a40;
+            /* Gray */
+            margin-top: 20px;
+            /* More space */
+            font-size: 17px;
+            /* Larger paragraph text */
+            line-height: 1.6;
+            /* Improved line height */
+        }
+        
+        .contact-us .phone-info {
+            margin-top: 30px;
+        }
+        
+        .contact-us .phone-info h4 {
+            font-weight: 600;
+            color: #212529;
+            /* Dark gray */
+            font-size: 20px;
+            /* Larger heading */
+        }
+        
+        .contact-us .phone-info a {
+            color: #0d6efd;
+            /* Primary blue */
+            text-decoration: none;
+            font-size: 18px;
+            /* Larger phone number */
+        }
+        
+        .contact-us .phone-info i {
+            color: #198754;
+            /* Success green */
+            margin-right: 10px;
+            /* More space */
+            font-size: 20px;
+            /* Larger icon */
+        }
+        
+        .contact-us form {
+            background-color: #fff;
+            padding: 40px;
+            /* More padding */
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+        
+        .contact-us input,
+        .contact-us textarea {
+            width: 100%;
+            padding: 15px;
+            /* Larger inputs */
+            margin-bottom: 20px;
+            /* More space */
+            border: 1px solid #ced4da;
+            /* Light gray border */
+            border-radius: 8px;
+            /* More rounded inputs */
+            font-size: 16px;
+            /* Larger font size */
+        }
+        
+        .contact-us textarea {
+            min-height: 180px;
+            /* Larger textarea */
+        }
+        
+        .contact-us .main-button {
+            background-color: #198754;
+            /* Success green */
+            color: #fff;
+            padding: 15px 30px;
+            /* Larger button */
+            border: none;
+            border-radius: 8px;
+            /* More rounded button */
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            /* Larger font size */
+        }
+        
+        .contact-us .main-button:hover {
+            background-color: #157347;
+            /* Darker green on hover */
+        }
+        
+        .contact-us .contact-dec {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+            /* Prevent image from blocking clicks */
+        }
+        
+        .contact-us .contact-dec img {
+            max-width: 100%;
+            opacity: 0.5;
+            /* Make the decoration image less prominent */
+        }
+        
+        /* ================== Footer ================== */
+        footer {
+            background-color: #0d6efd;
+            /* Primary blue */
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 16px;
+            /* Larger font size */
+            line-height: 1.6;
+            /* Improved line height */
+        }
+        
+        footer a {
+            color: #fff;
+            /* White links */
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ================== Responsive Design ================== */
+        @media (max-width: 992px) {
+        
+            /* Header */
+            .header-area .nav {
+                display: none;
+                /* Hide default nav on smaller screens */
+                width: 100%;
+                /* Make nav full width */
+                text-align: center;
+                /* Center align nav items */
+            }
+        
+            .header-area .nav li {
+                display: block;
+                /* Stack nav items vertically */
+                margin: 10px 0;
+            }
+        
+            .header-area .nav li a {
+                padding: 10px 0;
+            }
+        
+            .menu-trigger {
+                display: block;
+                /* Show mobile menu trigger */
+            }
+        
+            /* Main Banner */
+            .main-banner {
+                padding: 100px 0;
+            }
+        
+            .main-banner .left-content h2 {
+                font-size: 40px;
+            }
+        
+            .main-banner .left-content p {
+                font-size: 16px;
+            }
+        
+            .main-banner .left-content form {
+                padding: 20px;
+            }
+        
+            .main-banner .left-content input.email {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+        
+            .main-banner .left-content .main-button {
+                padding: 12px 20px;
+            }
+        
+            /* About Us, Our Services, etc. */
+            .about-us .left-image,
+            .our-services .left-image {
+                margin-bottom: 40px;
+                /* Add space above images on smaller screens */
+            }
+        
+            .about-us .services .item {
+                flex-direction: column;
+                /* Stack icon and text vertically */
+                text-align: center;
+                /* Center align text */
+            }
+        
+            .about-us .services .item .icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        
+            .our-services .section-heading h2,
+            .our-portfolio .section-heading h2,
+            .contact-us .section-heading h2 {
+                font-size: 36px;
+            }
+        
+            /* Contact Us */
+            .contact-us .col-lg-6 {
+                text-align: center;
+                /* Center align form on smaller screens */
+            }
+        }
+        
+        /* Animations */
+        .wow {
+            visibility: hidden;
+        }
+                .header-area .logo {
+                    margin-left: 30px;
+                }
+                                .background-header .logo,
+                                .background-header .main-nav .nav li a {
+                                    color: #1e1e1e !important;
+                                }
+                                                                .header-area .main-nav .logo {
+                                                                    line-height: 100px;
+                                                                    color: #fff;
+                                                                    font-size: 24px;
+                                                                    font-weight: 700;
+                                                                    text-transform: uppercase;
+                                                                    letter-spacing: 2px;
+                                                                    float: left;
+                                                                    -webkit-transition: all 0.3s ease 0s;
+                                                                    -moz-transition: all 0.3s ease 0s;
+                                                                    -o-transition: all 0.3s ease 0s;
+                                                                    transition: all 0.3s ease 0s;
+                                                                }
+                                
+                                                                .header-area .main-nav .logo h4 {
+                                                                    font-size: 24px;
+                                                                    font-weight: 700;
+                                                                    text-transform: uppercase;
+                                                                    color: #03a4ed;
+                                                                    line-height: 100px;
+                                                                    float: left;
+                                                                    -webkit-transition: all 0.3s ease 0s;
+                                                                    -moz-transition: all 0.3s ease 0s;
+                                                                    -o-transition: all 0.3s ease 0s;
+                                                                    transition: all 0.3s ease 0s;
+                                                                }
+                                
+                                                                .logo h4 span {
+                                                                    color: #fe3f40;
+                                                                }
+                                
+                                                                .background-header .main-nav .logo h4 {
+                                                                    line-height: 80px;
+                                                                }
+/* ... (Your existing styles in custom2.css) ... */
+
+/* ================== Point de Vente List Page (Harmonized with custom.css) ================== */
+.point-vente-list-container {
+    padding-top: 40px;
+    /* Adjust as needed */
+}
+
+/* Heading */
+.point-vente-list-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #283645;
+    /* Dark blue-gray from sidebar */
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.point-vente-list-container .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.point-vente-list-container .btn-secondary {
+    background-color: #3A4D5E;
+    /* Lighter blue-gray from sidebar */
+    border-color: #3A4D5E;
+    color: #fff;
+}
+
+.point-vente-list-container .btn-secondary:hover {
+    background-color: #283645;
+    /* Dark blue-gray from sidebar */
+    border-color: #283645;
+}
+
+.point-vente-list-container .btn-primary {
+    background-color: #E7BB41;
+    /* Golden yellow from sidebar */
+    border-color: #E7BB41;
+    color: #283645;
+    /* Dark blue-gray text for contrast */
+}
+
+.point-vente-list-container .btn-primary:hover {
+    background-color: #D6A731;
+    /* Darker yellow from sidebar */
+    border-color: #D6A731;
+}
+
+/* Cards */
+.point-vente-list-container .card {
+    border: none;
+    /* Remove default border */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* More subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.point-vente-list-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.point-vente-list-container .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #283645;
+    /* Dark blue-gray from sidebar */
+    margin-bottom: 15px;
+}
+
+.point-vente-list-container .card-text {
+    font-size: 16px;
+    color: #343a40;
+    /* Use the same body text color */
+    margin-bottom: 10px;
+}
+
+/* Outline Buttons */
+.point-vente-list-container .btn-outline-primary {
+    color: #E7BB41;
+    /* Golden yellow from sidebar */
+    border-color: #E7BB41;
+}
+
+.point-vente-list-container .btn-outline-primary:hover {
+    background-color: #E7BB41;
+    color: #283645;
+    /* Dark blue-gray text for contrast */
+}
+
+.point-vente-list-container .btn-outline-danger {
+    color: #dc3545;
+    /* Bootstrap's danger color */
+    border-color: #dc3545;
+}
+
+.point-vente-list-container .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.point-vente-list-container .fs-5 {
+    /* For the "empty" message */
+    font-size: 18px;
+}
+
+/* ... (Your existing styles in custom2.css) ... */
+
+/* ================== Point de Vente Add Form ================== */
+.point-vente-form-container {
+    padding-top: 40px;
+    /* Adjust as needed */
+}
+
+.point-vente-form-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #283645;
+    /* Dark blue-gray from sidebar */
+    margin-bottom: 30px;
+}
+
+.point-vente-form-container .form-label {
+    font-weight: 600;
+    color: #283645;
+    /* Dark blue-gray */
+}
+
+.point-vente-form-container .form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    /* Light gray border */
+    font-size: 16px;
+}
+
+.point-vente-form-container .form-control:focus {
+    border-color: #E7BB41;
+    /* Golden yellow from sidebar */
+    box-shadow: 0 0 0 0.2rem rgba(231, 187, 65, 0.25);
+    /* Golden yellow focus ring */
+}
+
+.point-vente-form-container .btn-primary {
+    background-color: #E7BB41;
+    border-color: #E7BB41;
+    color: #283645;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.point-vente-form-container .btn-primary:hover {
+    background-color: #D6A731;
+    border-color: #D6A731;
+}
+
+.point-vente-form-container .form-text {
+    font-size: 14px;
+    color: #6c757d;
+    /* Gray from Bootstrap */
+}
+/* ... (Your existing styles in custom2.css) ... */
+
+/* ================== Product List Page ================== */
+.product-list-container {
+    padding-top: 40px;
+    /* Adjust as needed */
+}
+
+.product-list-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #283645;
+    /* Dark blue-gray from sidebar */
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.product-list-container .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.product-list-container .btn-primary {
+    background-color: #E7BB41;
+    /* Golden yellow from sidebar */
+    border-color: #E7BB41;
+    color: #283645;
+    /* Dark blue-gray text */
+}
+
+.product-list-container .btn-primary:hover {
+    background-color: #D6A731;
+    border-color: #D6A731;
+}
+
+.product-list-container .btn-secondary {
+    background-color: #3A4D5E;
+    /* Lighter blue-gray from sidebar */
+    border-color: #3A4D5E;
+    color: #fff;
+}
+
+.product-list-container .btn-secondary:hover {
+    background-color: #283645;
+    border-color: #283645;
+}
+
+.product-list-container .btn-success {
+    background-color: #198754;
+    /* Success green from Bootstrap */
+    border-color: #198754;
+    color: #fff;
+}
+
+.product-list-container .btn-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+/* Cards */
+.product-list-container .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-list-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-list-container .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #283645;
+    margin-bottom: 10px;
+}
+
+.product-list-container .card-text {
+    font-size: 16px;
+    color: #343a40;
+}
+
+/* Outline Buttons */
+.product-list-container .btn-outline-primary {
+    color: #E7BB41;
+    border-color: #E7BB41;
+}
+
+.product-list-container .btn-outline-primary:hover {
+    background-color: #E7BB41;
+    color: #283645;
+}
+
+.product-list-container .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.product-list-container .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.product-list-container .card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+/* ... (Your existing styles in custom2.css) ... */
+
+/* ================== Product Edit Form ================== */
+.product-edit-form-container {
+    padding-top: 40px;
+    /* Adjust as needed */
+}
+
+.product-edit-form-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #283645;
+    /* Dark blue-gray from sidebar */
+    margin-bottom: 30px;
+}
+
+.product-edit-form-container .form-label {
+    font-weight: 600;
+    color: #283645;
+    /* Dark blue-gray */
+}
+
+.product-edit-form-container .form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    /* Light gray border */
+    font-size: 16px;
+}
+
+.product-edit-form-container .form-control:focus {
+    border-color: #E7BB41;
+    /* Golden yellow from sidebar */
+    box-shadow: 0 0 0 0.2rem rgba(231, 187, 65, 0.25);
+    /* Golden yellow focus ring */
+}
+
+.product-edit-form-container .btn-primary {
+    background-color: #E7BB41;
+    border-color: #E7BB41;
+    color: #283645;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.product-edit-form-container .btn-primary:hover {
+    background-color: #D6A731;
+    border-color: #D6A731;
+}
+
+.product-edit-form-container .form-text {
+    font-size: 14px;
+    color: #6c757d;
+    /* Gray from Bootstrap */
+}
+/* ... (Your existing styles in custom2.css) ... */
+
+/* ================== Panier List Page ================== */
+.panier-list-container {
+    padding-top: 40px;
+    /* Adjust as needed */
+}
+
+.panier-list-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #283645;
+    /* Dark blue-gray from sidebar */
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.panier-list-container .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Primary Button */
+.panier-list-container .btn-primary {
+    background-color: #E7BB41;
+    /* Golden yellow from sidebar */
+    border-color: #E7BB41;
+    color: #283645;
+    /* Dark blue-gray text */
+}
+
+.panier-list-container .btn-primary:hover {
+    background-color: #D6A731;
+    border-color: #D6A731;
+}
+
+/* Secondary Button */
+.panier-list-container .btn-secondary {
+    background-color: #3A4D5E;
+    /* Lighter blue-gray from sidebar */
+    border-color: #3A4D5E;
+    color: #fff;
+}
+
+.panier-list-container .btn-secondary:hover {
+    background-color: #283645;
+    border-color: #283645;
+}
+
+/* Success Button */
+.panier-list-container .btn-success {
+    background-color: #198754;
+    /* Success green from Bootstrap */
+    border-color: #198754;
+    color: #fff;
+}
+
+.panier-list-container .btn-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+/* Cards */
+.panier-list-container .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panier-list-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.panier-list-container .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.panier-list-container .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #283645;
+}
+
+.panier-list-container .card-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #283645;
+}
+
+.panier-list-container .card-text {
+    font-size: 16px;
+    color: #343a40;
+    margin-bottom: 5px;
+}
+
+.panier-list-container .list-group-item {
+    border: none;
+    padding: 5px 10px;
+}
+
+.panier-list-container .list-group-item-warning {
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+    color: #856404;
+}
+
+.panier-list-container .card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+
+/* Outline Buttons */
+.panier-list-container .btn-outline-primary {
+    color: #E7BB41;
+    border-color: #E7BB41;
+}
+
+.panier-list-container .btn-outline-primary:hover {
+    background-color: #E7BB41;
+    color: #283645;
+}
+
+.panier-list-container .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.panier-list-container .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Table */
+.panier-list-container .table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    color: #283645;
+}
+
+.panier-list-container .table tbody td {
+    border-top: 1px solid #e9ecef;
+}
+
+.panier-list-container .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+                                                    

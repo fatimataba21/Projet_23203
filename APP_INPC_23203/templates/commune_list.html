@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Liste des Communes</h2>
+
+    <!-- Barre Import/Export -->
+    <div class="d-flex justify-content-between mb-3">
+        <!-- Bouton Ajouter -->
+        <a href="{% url 'commune_add' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Ajouter
+        </a>
+
+        <!-- Bouton Export -->
+        <a href="{% url 'commune_export' %}" class="btn btn-primary">
+            <i class="fas fa-file-export"></i> Exporter
+        </a>
+
+        <!-- Formulaire Import -->
+        <form method="POST" action="{% url 'commune_import' %}" enctype="multipart/form-data" class="d-flex">
+            {% csrf_token %}
+            <input type="file" name="file" class="form-control me-2" accept=".xlsx,.xls,.csv" required>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-file-import"></i> Importer
+            </button>
+        </form>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Moughataa</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commune in commune_list %}
+            <tr>
+                <td>{{ commune.code }}</td>
+                <td>{{ commune.name }}</td>
+                <!-- On affiche le nom de la moughataa liée -->
+                <td>{{ commune.moughataa.label }}</td>
+                <td>
+                    <!-- Lien de modification -->
+                    <a href="{% url 'commune_edit' commune.id %}" class="btn btn-warning btn-sm">
+                        <i class="fas fa-edit"></i> Modifier
+                    </a>
+                    <!-- Lien de suppression -->
+                    <form action="{% url 'commune_delete' commune.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Supprimer
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">Aucune commune disponible</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Liste des Points de Vente</h2>
+
+    <!-- Barre Import/Export -->
+    <div class="d-flex justify-content-between mb-3">
+        <!-- Bouton Ajouter -->
+        <a href="{% url 'point_of_sale_add' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Ajouter
+        </a>
+
+        <!-- Bouton Export -->
+        <a href="{% url 'point_of_sale_export' %}" class="btn btn-primary">
+            <i class="fas fa-file-export"></i> Exporter
+        </a>
+
+        <!-- Formulaire Import -->
+        <form method="POST" action="{% url 'point_of_sale_import' %}" enctype="multipart/form-data" class="d-flex">
+            {% csrf_token %}
+            <input type="file" name="file" class="form-control me-2" accept=".xlsx,.xls,.csv" required>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-file-import"></i> Importer
+            </button>
+        </form>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Code</th>
+                <th>Type</th>
+                <th>GPS Lat</th>
+                <th>GPS Lon</th>
+                <th>Commune</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pos in pointofsale_list %}
+            <tr>
+                <td>{{ pos.code }}</td>
+                <td>{{ pos.type }}</td>
+                <td>{{ pos.gps_lat|default:"-" }}</td>
+                <td>{{ pos.gps_lon|default:"-" }}</td>
+                <td>{{ pos.commune.label }}</td>
+                <td>
+                    <a href="{% url 'point_of_sale_edit' pos.pk %}" class="btn btn-warning btn-sm">
+                        <i class="fas fa-edit"></i> Modifier
+                    </a>
+                    <a href="{% url 'point_of_sale_delete' pos.pk %}" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i> Supprimer
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">Aucun point de vente disponible</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Supprimer le Type de Produit</h2>
+    <p>Voulez-vous vraiment supprimer <strong>{{ product_type.label }}</strong> ?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Supprimer</button>
+        <a href="{% url 'product_type_list' %}" class="btn btn-secondary"><i class="fas fa-times"></i> Annuler</a>
+    </form>
+</div>
+{% endblock %}

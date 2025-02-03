@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">Supprimer cet élément du panier</h2>
+
+    <div class="alert alert-danger">
+        <p>Êtes-vous sûr de vouloir retirer le produit
+            <strong>{{ cartproduct.product.name }}</strong>
+            du panier <strong>{{ cartproduct.cart_product.name }}</strong> ?
+        </p>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash"></i> Supprimer
+        </button>
+        <a href="{% url 'cartproducts_list' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Annuler
+        </a>
+    </form>
+</div>
+{% endblock %}
